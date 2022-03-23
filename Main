@@ -1,0 +1,67 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main {
+    public static void printArray() {
+        System.out.print("Enter the number of items: ");
+        Scanner amnt_inp = new Scanner(System.in);
+        int num_of_items = amnt_inp.nextInt();
+        System.out.print("\n" + "Enter the value of all items (separated by space): ");
+        Scanner val_inp = new Scanner(System.in);
+        String x = val_inp.nextLine();
+        char[] val_of_items = x.toCharArray();
+        System.out.print("\n" + "The values are: ["+val_of_items[0]);
+        for (int i = 2; i <= (2*num_of_items) - 1; i += 2) {
+            System.out.print(", " + val_of_items[i]);
+        }
+        System.out.print("]");
+    }
+
+    public static void printArrayInStars() {
+        System.out.print("Enter the number of items: ");
+        Scanner amnt_inp = new Scanner(System.in);
+        int num_of_items = amnt_inp.nextInt();
+        System.out.print("\n" + "Enter the value of all items (separated by space): ");
+        Scanner val_inp = new Scanner(System.in);
+        String x = val_inp.nextLine();
+        char[] val_of_items = x.toCharArray();
+        System.out.print("\n");
+        for (int i = 1; i <= (2*num_of_items) - 1; i += 2) {
+            int index = (i-1)/2;
+            System.out.print(index + ": ");
+            for (int h = 0; h < Character.getNumericValue(val_of_items[i-1]); h += 1) {
+                System.out.print("*");
+            }
+            System.out.println("(" + val_of_items[i-1] + ")");
+        }
+        System.out.print("");
+    }
+
+    public static void machineProblem3() {
+        System.out.print("Enter the number of students: ");
+        Scanner std_inp = new Scanner(System.in);
+        int num_of_stds = std_inp.nextInt();
+        float total_grd = 0;
+        int min_grd = 999999999;
+        int max_grd = 0;
+        for (int i = 1; i <= num_of_stds; i++) {
+            System.out.print("Enter the grade for student number " + i + ": ");
+            Scanner grd_inp = new Scanner(System.in);
+            int placeholder = grd_inp.nextInt();
+            if (placeholder > max_grd) {
+                max_grd = placeholder;
+            } else if (placeholder < min_grd) {
+                min_grd = placeholder;
+            }
+            total_grd += placeholder;
+        }
+        float avg = total_grd / num_of_stds;
+        System.out.println("The average is: " + avg);
+        System.out.println("The minimum is: " + min_grd);
+        System.out.println("The maximum is: " + max_grd);
+    }
+
+    public static void main(String[] args) {
+        
+    }
+}
+
